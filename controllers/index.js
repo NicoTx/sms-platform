@@ -1,5 +1,6 @@
 'use strict'
 
 module.exports = {
-  start: require('./start')
+  start: require('./start'),
+  send: require('./send')
 }
