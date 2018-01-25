@@ -27,6 +27,7 @@ function startServer () {
   router.post('/send', controller.send)
   // demarrage du serveur
   app
+  .use(serve('public'))
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods())
