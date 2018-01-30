@@ -3,5 +3,10 @@
 module.exports = send
 
 function send (ctx) {
-  ctx.body = ctx.request.body
+  const message = ctx.request.body.message
+  const numbers = ctx.request.body.numbers
+  // @TODO envoyer un sms avec le contenu "message" au numero dans "numbers"
+  // @TODO (plus tard) envoyer a plusieurs numeros
+  console.log(message, numbers)
+  ctx.body = 'OK'
 }
