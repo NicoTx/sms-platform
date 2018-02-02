@@ -8,14 +8,24 @@ async function send (ctx) {
   // recupere les parametres envoyes par le client
   const message = ctx.request.body.message
   const numbers = ctx.request.body.numbers
-  // @TODO envoyer a plusieurs numeros simultanement
+  // verifie le message
+  if (!message.length > 0) {
+    ctx.body = 'Aucun message'
+    return
+  }
+  const numbersCollection = numbers.split('\n')
+  // verifie les numeros
+  if (!numbersCollection.length > 0) {
+    ctx.body = 'Aucun numero'
+    return
+  }
   // prepare la requete
   const options = {
     method: 'POST',
     uri: 'https://api.clxcommunications.com/xms/v1/' + process.env.API_ID + '/batches',
     body: {
       'from': 'SMSPlatform',
-      'to': [numbers],
+      'to': numbersCollection,
       'body': message
     },
     headers: {
@@ -26,7 +36,13 @@ async function send (ctx) {
   }
   try {
     // envoi la requete a l'API SMS
-    await rp(options)
+    const response = await rp(options)
+    // @TODO enregistrer la liste des numeros et le message en bdd
+    for (let number in numbersCollection) {
+      // @TODO finir la requete SQL
+      await ctx.connection.execute('INSERT INTO SMS (numeros, texte) VALUES (' + number + ', ' + message + ')')
+    }
+    console.log(response)
   } catch (e) {
     console.error(e)
   }

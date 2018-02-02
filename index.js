@@ -9,11 +9,14 @@ const bodyParser = require('koa-body')
 const path = require('path')
 const rp = require('request-promise')
 const controller = require('./controllers')
+const db = require('./db')
 
-function startServer () {
+async function startServer () {
   // serveur
   const app = new Koa()
   const router = new Router()
+
+  app.context.connection = await db.connection()
   // moteur de template
   render(app, {
     root: path.join(__dirname, 'views'),
