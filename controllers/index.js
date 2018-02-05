@@ -2,5 +2,6 @@
 
 module.exports = {
   start: require('./start'),
-  send: require('./send')
+  send: require('./send'),
+  historical: require('./historical')
 }

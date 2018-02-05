@@ -1,6 +1,6 @@
 CREATE TABLE SMS (
 	id int NOT NULL AUTO_INCREMENT,
-    numeros varchar(40),
+    numero varchar(15),
     texte varchar(200),
     PRIMARY KEY (id)
 );

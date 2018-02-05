@@ -28,6 +28,7 @@ async function startServer () {
   // routes
   router.get('/', controller.start)
   router.post('/send', controller.send)
+  router.get('/historical', controller.historical)
   // demarrage du serveur
   app
   .use(serve('public'))
