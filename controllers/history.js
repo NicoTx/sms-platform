@@ -1,8 +1,8 @@
 'use strict'
 
-module.exports = historical
+module.exports = history
 
-async function historical (ctx) {
+async function history (ctx) {
   const [results] = await ctx.connection.execute('SELECT id, numero, texte FROM SMS')
   ctx.body = results
 }

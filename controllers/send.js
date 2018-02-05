@@ -37,9 +37,8 @@ async function send (ctx) {
   try {
     // envoi la requete a l'API SMS
     const response = await rp(options)
-    // @TODO enregistrer la liste des numeros et le message en bdd
+    // enregistre la liste des numeros et le message en bdd
     for (let number of numbersCollection) {
-      // @TODO finir la requete SQL
       await ctx.connection.execute('INSERT INTO SMS (numero, texte) VALUES (?, ?)', [number, message])
     }
     console.log(response)

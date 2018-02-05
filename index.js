@@ -7,7 +7,6 @@ const render = require('koa-ejs')
 const serve = require('koa-static')
 const bodyParser = require('koa-body')
 const path = require('path')
-const rp = require('request-promise')
 const controller = require('./controllers')
 const db = require('./db')
 
@@ -28,7 +27,7 @@ async function startServer () {
   // routes
   router.get('/', controller.start)
   router.post('/send', controller.send)
-  router.get('/historical', controller.historical)
+  router.get('/history', controller.history)
   // demarrage du serveur
   app
   .use(serve('public'))
