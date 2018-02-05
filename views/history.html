@@ -3,6 +3,19 @@
     <title>SMS-Platform</title>
 </head>
 <body>
-    <script type="text/javascript" src="/history.js"></script>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Numéros</th> 
+            <th>Message</th>
+        </tr>
+            <% results.forEach(function (result) {%>
+                <tr>
+                    <td><%= result.id %></td>
+                    <td><%= result.numero %></td>
+                    <td><%= result.texte %></td>
+                </tr>
+            <% })%>
+    </table>
 </body>
 </html>
