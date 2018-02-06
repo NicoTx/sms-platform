@@ -1,0 +1,32 @@
+body {
+    background: grey;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+.content {
+    background: rgb(241, 184, 184);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+ul#menu_horizontal {
+    padding: 0;
+    background: rgb(153, 223, 144);
+    list-style-type: none;
+}
+
+ul#menu_horizontal li { 
+    display : inline;
+    padding : 0 0.5em;
+}
+
+.message_area {
+    
+}
+
+.numbers_area {
+
+}
