@@ -39,11 +39,12 @@ async function send (ctx) {
     const response = await rp(options)
     // enregistre la liste des numeros et le message en bdd
     for (let number of numbersCollection) {
-      await ctx.connection.execute('INSERT INTO SMS (numero, texte) VALUES (?, ?)', [number, message])
+      await ctx.connection.execute('INSERT INTO SMS (numero, texte, date) VALUES (?, ?, NOW())', [number, message])
     }
     console.log(response)
+    ctx.body = 'Message bien envoyé'
   } catch (e) {
     console.error(e)
+    ctx.body = 'Erreur'
   }
-  ctx.body = 'OK'
 }

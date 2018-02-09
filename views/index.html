@@ -1,29 +1,34 @@
 <html>
-<head>
-    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
-    <title>SMS-Platform</title>
-</head>
+<div>
+    <% include head.html %>
+</div>
 <body>
     <div class="content">
-    <h1>SMS-Platform</h1>
+    <div class="p-3 mb-2 bg-light text-dark">
+    <h1 class="mb-4">SMS-Platform</h1>
 
-    <ul id="menu_horizontal">
-		<li><a href="/">Envoie</a></li>
-		<li><a href="/history">Historique</a></li>
+    <ul class="nav nav-pills nav-fill">
+		<li class="nav-item">
+            <a class="nav-link active" href="/">Envoie</a>
+        </li>
+		<li class="nav-item">
+            <a class="nav-link" href="/history">Historique</a>
+        </li>
 	</ul>
     
-    <div class="message_area">
-    <textarea id="message" name="message" rows="10" cols="50" placeholder="Message à transmettre"></textarea>
+    <div class="position-relative">
+    <textarea id="message" class="my-4" name="message" rows="10" cols="50" placeholder="Message à transmettre"></textarea>
     </div>
-    <div class="numbers_area">
-    <textarea id="numbers" name="numbers" rows="10" cols="50" placeholder="Liste des numéros"></textarea>
+    <div class="position-relative">
+    <textarea id="numbers" class="mb-4" name="numbers" rows="10" cols="50" placeholder="Liste des numéros"></textarea>
     </div>
-    <button type="button" id="button">Envoyer</button> 
+    <button type="button" id="button" class="btn btn-info">Envoyer</button> 
     
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="/main.js"></script>
+    </div>
     </div>
 </body>
 </html>
