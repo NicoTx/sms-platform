@@ -41,9 +41,10 @@ async function send (ctx) {
     for (let number of numbersCollection) {
       await ctx.connection.execute('INSERT INTO SMS (numero, texte, date) VALUES (?, ?, NOW())', [number, message])
     }
-    ctx.body = `Votre message a bien été envoyé à ${numbersCollection.length} destinataires.`
+    const pluriel = numbersCollection.length > 1 ? 's' : ''
+    ctx.body = `Votre message a bien été envoyé à ${numbersCollection.length} destinataire${pluriel}.`
   } catch (e) {
     console.error(e)
-    ctx.body = 'Erreur'
+    ctx.body = 'Une erreur est survenue, merci d\'essayer à nouveau.'
   }
 }
