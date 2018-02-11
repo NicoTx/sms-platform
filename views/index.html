@@ -1,20 +1,30 @@
 <html>
 <% include head.html %>
 <body>
-    <% include menu.html %>
-    <div class="position-relative">
-    <textarea id="message" class="my-4" name="message" rows="10" cols="50" placeholder="Message à transmettre"></textarea>
-    </div>
-    <div class="position-relative">
-    <textarea id="numbers" class="mb-4" name="numbers" rows="10" cols="50" placeholder="Liste des numéros"></textarea>
-    </div>
-    <button type="button" id="button" class="btn btn-info">Envoyer</button> 
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    <div class="container-fluid">
+        
+        <div class="row">
+            <% include menu.html %>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="position-relative">
+                    <textarea id="message" name="message" placeholder="Message à transmettre" class="form-control form-textarea"></textarea>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="position-relative">
+                    <textarea id="numbers" name="numbers" placeholder="Liste des numéros" class="form-control form-textarea"></textarea>
+                </div>
+            </div>
+        </div>
+        <button type="button" id="button" class="btn btn-primary mt-3">Envoyer</button> 
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/main.js"></script>
+        <script type="text/javascript" src="/main.js"></script>
     </div>
-    </div>
+</div>
 </body>
 </html>
