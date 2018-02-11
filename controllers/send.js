@@ -15,7 +15,7 @@ async function send (ctx) {
   }
   const numbersCollection = numbers.split('\n')
   // verifie les numeros
-  if (!numbersCollection.length > 0) {
+  if (!numbers.length > 0 || !numbersCollection.length > 0) {
     ctx.body = 'Aucun numero'
     return
   }
