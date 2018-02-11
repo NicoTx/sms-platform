@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+    - "7000:"3000"
+    restart: always
+    links:
+      - db
+    env_file: .env.docker
+  db:
+    image: mysql
+    restart: always
