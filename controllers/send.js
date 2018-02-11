@@ -36,13 +36,12 @@ async function send (ctx) {
   }
   try {
     // envoi la requete a l'API SMS
-    const response = await rp(options)
+    await rp(options)
     // enregistre la liste des numeros et le message en bdd
     for (let number of numbersCollection) {
       await ctx.connection.execute('INSERT INTO SMS (numero, texte, date) VALUES (?, ?, NOW())', [number, message])
     }
-    console.log(response)
-    ctx.body = 'Message bien envoyé'
+    ctx.body = `Votre message a bien été envoyé à ${numbersCollection.length} destinataires.`
   } catch (e) {
     console.error(e)
     ctx.body = 'Erreur'
